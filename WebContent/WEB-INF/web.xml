@@ -1,32 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>zprobe</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>ThreadsDumperServlet</display-name>
-    <servlet-name>ThreadsDumperServlet</servlet-name>
-    <servlet-class>com.zucchetti.dc.probe.ThreadsDumperServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ThreadsDumperServlet</servlet-name>
-    <url-pattern>/ThreadsDumperServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ThreadsDumperDiagnosticServlet</display-name>
-    <servlet-name>ThreadsDumperDiagnosticServlet</servlet-name>
-    <servlet-class>com.zucchetti.dc.probe.ThreadsDumperDiagnosticServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ThreadsDumperDiagnosticServlet</servlet-name>
-    <url-pattern>/ThreadsDumperDiagnosticServlet</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>zprobe</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<security-constraint>
+		<display-name>No anonymous access</display-name>
+		<web-resource-collection>
+			<web-resource-name>All areas</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>probeuser</role-name>
+			<role-name>poweruser</role-name>
+			<role-name>manager</role-name>
+			<role-name>manager-gui</role-name>
+			<role-name>poweruserplus</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	<!-- Defines the Login Configuration for this Application -->
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>Zucchetti Probe</realm-name>
+	</login-config>
+	<!--Security roles referenced by this web application -->
+	<security-role>
+		<role-name>manager-gui</role-name>
+	</security-role>
+	<security-role>
+		<role-name>manager</role-name>
+	</security-role>
+	<security-role>
+		<role-name>poweruser</role-name>
+	</security-role>
+	<security-role>
+		<role-name>poweruserplus</role-name>
+	</security-role>
+	<security-role>
+		<role-name>probeuser</role-name>
+	</security-role>
+	<servlet>
+		<description></description>
+		<display-name>ThreadsDumperServlet</display-name>
+		<servlet-name>ThreadsDumperServlet</servlet-name>
+		<servlet-class>com.zucchetti.dc.probe.ThreadsDumperServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ThreadsDumperServlet</servlet-name>
+		<url-pattern>/ThreadsDumperServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ThreadsDumperDiagnosticServlet</display-name>
+		<servlet-name>ThreadsDumperDiagnosticServlet</servlet-name>
+		<servlet-class>com.zucchetti.dc.probe.ThreadsDumperDiagnosticServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ThreadsDumperDiagnosticServlet</servlet-name>
+		<url-pattern>/ThreadsDumperDiagnosticServlet</url-pattern>
+	</servlet-mapping>
 </web-app>
