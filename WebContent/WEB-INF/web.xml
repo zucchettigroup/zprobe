@@ -11,12 +11,22 @@
   </welcome-file-list>
   <servlet>
     <description></description>
-    <display-name>ThreadDump</display-name>
-    <servlet-name>ThreadDump</servlet-name>
+    <display-name>ThreadsDumperServlet</display-name>
+    <servlet-name>ThreadsDumperServlet</servlet-name>
     <servlet-class>com.zucchetti.dc.probe.ThreadsDumperServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ThreadDump</servlet-name>
-    <url-pattern>/ThreadDump</url-pattern>
+    <servlet-name>ThreadsDumperServlet</servlet-name>
+    <url-pattern>/ThreadsDumperServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ThreadsDumperDiagnosticServlet</display-name>
+    <servlet-name>ThreadsDumperDiagnosticServlet</servlet-name>
+    <servlet-class>com.zucchetti.dc.probe.ThreadsDumperDiagnosticServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ThreadsDumperDiagnosticServlet</servlet-name>
+    <url-pattern>/ThreadsDumperDiagnosticServlet</url-pattern>
   </servlet-mapping>
 </web-app>
