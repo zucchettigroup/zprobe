@@ -44,11 +44,6 @@ public class ThreadsDumperDiagnosticServlet extends HttpServlet
 			.append("<p>Dump time ").append(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss,SS").format(dumpTime)).append("</p>")
 			.append("<textarea class=\"dumpTextArea\" readonly=\"readonly\" style=\"display: block; font-size: 12px\" rows=\"40\" cols=\"180\">").append(dumpStr).append("</textarea>")
 			.append("<br/><p><a href=\"index.html\"><img border=\"0\" alt=\"home\" src=\"home.png\"></a></p>")
-			.append("<p>"
-					+ "<a href='javascript:window.open(\"http://jvmanalyzer.zucchetti.com/fastthread/\","
-					+ " \"_blank\", "
-					+ "\"toolbar=yes,scrollbars=yes,resizable=yes,width=1024,height=800\");'>"
-					+ "<img border=\"0\" alt=\"fastthread\" src=\"fastthread.png\"></a></p>")
 		.append("</body>")
 		.append("</html>");
 
