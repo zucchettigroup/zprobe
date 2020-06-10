@@ -42,8 +42,10 @@ public class ThreadsDumperServlet extends HttpServlet
 					.append("<title>Dump Threads</title>")
 				.append("</head>")
 				.append("<body style=\"text-align: center; margin: 20px\">")
+					.append("<img alt=\"thread dump\" src=\"thread-dump-analyzer.png\" style=\"width:150px;height:100px;\">")
 					.append("<p>Dump time ").append(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss,SS").format(dumpTime)).append("</p>")
-					.append("<textarea class=\"dumpTextArea\" readonly=\"readonly\" style=\"display: block; font-size: 12px\" rows=\"50\" cols=\"180\">").append(sw.toString()).append("</textarea>")
+					.append("<textarea class=\"dumpTextArea\" readonly=\"readonly\" style=\"display: block; font-size: 12px\" rows=\"40\" cols=\"180\">").append(sw.toString()).append("</textarea>")
+					.append("<br/><p><a href=\"index.html\"><img border=\"0\" alt=\"home\" src=\"home.png\"></a></p>")
 				.append("</body>")
 			.append("</html>");
 	}

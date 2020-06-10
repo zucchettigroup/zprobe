@@ -35,12 +35,20 @@ public class ThreadsDumperDiagnosticServlet extends HttpServlet
 		.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">")
 		.append("<html>")
 		.append("<head>")
-		.append("<meta http-equiv=\"Content-Type\" content=\"text/html; UTF-8\">")
-		.append("<title>Dump Threads Diagnostic</title>")
+			.append("<meta http-equiv=\"Content-Type\" content=\"text/html; UTF-8\">")
+			.append("<title>Dump Threads Diagnostic</title>")
 		.append("</head>")
 		.append("<body style=\"text-align: center; margin: 20px\">")
-		.append("<p>Dump time ").append(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss,SS").format(dumpTime)).append("</p>")
-		.append("<textarea class=\"dumpTextArea\" readonly=\"readonly\" style=\"display: block; font-size: 12px\" rows=\"50\" cols=\"180\">").append(dumpStr).append("</textarea>")
+			.append("<img alt=\"thread dump\" src=\"thread-dump-analyzer.png\" style=\"width:150px;height:100px;\">")
+			.append("<img alt=\"jmc\" src=\"220px_jdk_mission_control.png\" style=\"width:100px;height:100px;\">")
+			.append("<p>Dump time ").append(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss,SS").format(dumpTime)).append("</p>")
+			.append("<textarea class=\"dumpTextArea\" readonly=\"readonly\" style=\"display: block; font-size: 12px\" rows=\"40\" cols=\"180\">").append(dumpStr).append("</textarea>")
+			.append("<br/><p><a href=\"index.html\"><img border=\"0\" alt=\"home\" src=\"home.png\"></a></p>")
+			.append("<p>"
+					+ "<a href='javascript:window.open(\"http://jvmanalyzer.zucchetti.com/fastthread/\","
+					+ " \"_blank\", "
+					+ "\"toolbar=yes,scrollbars=yes,resizable=yes,width=1024,height=800\");'>"
+					+ "<img border=\"0\" alt=\"fastthread\" src=\"fastthread.png\"></a></p>")
 		.append("</body>")
 		.append("</html>");
 
